@@ -7,8 +7,8 @@
      <module name="TreeWalker">
            <module name="ConstantName">
                     <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
-          <module name="JavadocType">
-                    <property name="scope" value="public"/>
+                          <module name="JavadocType">
+                              <property name="scope" value="public"/>
           </module>
      </module>
 </module>
