@@ -2,8 +2,10 @@ package com.leszko.calculator;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
-
+/**insert comment here
+*javadoc comment
+*i hope this works
+*/
 @Service
 public class Calculator {
         final static int umlNUMBER1 = 3;
