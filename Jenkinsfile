@@ -18,7 +18,7 @@ podTemplate(yaml: '''
       container('centos') {
         stage('start calculator') { 
           sh '''
-          cd Chapter08/sample3
+          cd Chapter08/sample1
           $ curl -LO "https://dl.k8s.io/release/$(curl -L -s 
           https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" 
           $ chmod +x ./kubectl
