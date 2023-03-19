@@ -13,12 +13,11 @@ podTemplate(yaml: '''
 ''') { 
   node(POD_LABEL) {
      stage('gradle') { 
-       git 
-'https://github.com/StrayCat96/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
+       git 'https://github.com/StrayCat96/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
     container('gradle') {
       stage('test calculator') {
         sh '''
-        cd Chapter08/sample1
+        cd Chapter09/sample3
         chmod +x gradlew
         ./gradlew acceptanceTest -Dcalculator.url=http://$CALCIP:8080
       '''
