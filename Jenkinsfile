@@ -11,7 +11,7 @@ podTemplate(yaml: '''
         - 99d 
       restartPolicy: Never
 ''') { 
-    node(POD_LABEL) {
+  node(POD_LABEL) {
      stage('gradle') { 
        git
 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
@@ -22,9 +22,9 @@ podTemplate(yaml: '''
         chmod +x gradlew
         ./gradlew acceptanceTest -Dcalculator.url=http://calculator-service:8080
       '''
-        }
-       }
       }
-        
+     }
    }
+        
+ }
 }
