@@ -39,8 +39,7 @@ public class StepDefinitions {
         this.a = a;
         this.b = b;
     }
-}
-
+    
     @When("^the calculator divides them$")
     public void the_calculator_divides_them() throws Throwable {
         String url = String.format("%s/div?a=%s&b=%s", server, a, b);
