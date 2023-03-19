@@ -3,28 +3,27 @@ podTemplate(yaml: '''
     kind: Pod 
     spec:
       containers:
-      - name: centos
-        image: centos 
-        command:
+      - name: gradle
+        image: gradle:jdk8 command:
         - sleep
         args:
         - 99d 
       restartPolicy: Never
 ''') { 
-  node(POD_LABEL) {
-    stage('k8s') {
-      git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
-      container('centos') {
-        stage('start calculator') { 
-          sh '''
-          cd Chapter09/sample3
-          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-          chmod +x ./kubectl
-          test $(curl calculator-service:8080/div?a=6\\&b=0) -eq 3 && echo 'pass' || 'fail'
-                  ''' 
-                  }
-                } 
-              }
-              
-    }
+    node(POD_LABEL) {
+stage('gradle') { 
+    git
+'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
+    container('gradle') {
+      stage('test calculator') {
+        sh '''
+        cd Chapter09/sample3
+        chmod +x gradlew
+        ./gradlew acceptanceTest -Dcalculator.url=http://calculator-service:8080
+      '''
+        }
+       }
+      }
+        
+   }
 }
