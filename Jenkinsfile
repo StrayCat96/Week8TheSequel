@@ -18,7 +18,7 @@ podTemplate(yaml: '''
     container('gradle') {
       stage('test calculator') {
         sh '''
-        cd Chapter09/sample3
+        cd Chapter08/sample1
         chmod +x gradlew
         ./gradlew acceptanceTest -Dcalculator.url=http://calculator-service:8080
       '''
