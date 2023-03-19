@@ -19,7 +19,7 @@ spec:
         image: dlambrig/week8:1.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8090
+        - containerPort: 8080
 
 ---
 
@@ -32,4 +32,4 @@ spec:
   selector:
     app: calculator
   ports:
-  - port: 8090
+  - port: 8080
