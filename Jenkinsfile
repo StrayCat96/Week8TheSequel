@@ -18,9 +18,10 @@ podTemplate(yaml: '''
     container('gradle') {
       stage('test calculator') {
         sh '''
-        cd Chapter09/sample3
-        chmod +x gradlew
-        ./gradlew acceptanceTest -Dcalculator.url=http://$CALCIP:8080
+        cd Chapter08/sample1
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x ./kubectl
+        ./kubectl apply -f calculator.yaml
       '''
       }
      }
