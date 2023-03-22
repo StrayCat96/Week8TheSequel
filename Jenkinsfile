@@ -14,7 +14,7 @@ podTemplate(yaml: '''
   node(POD_LABEL) {
      stage('gradle') { 
        git 
-'https://github.com/StrayCat96/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git' 
+'https://github.com/StrayCat96/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition_v1.git' 
     container('gradle') {
       stage('test calculator') {
         sh '''
