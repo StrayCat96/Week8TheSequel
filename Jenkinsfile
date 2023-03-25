@@ -22,7 +22,7 @@ podTemplate(yaml: '''
           chmod +x ./kubectl
           ./kubectl apply -f hazelcast.yaml
           ./kubectl apply -f calculator.yaml
-          test $(curl calculator-service:8080/div?a=6\\&b=2) -eq 3 && echo 'pass' || 'fail'
+          test $(curl calculator-service:8080/sum?a=6\\&b=2) -eq 3 && echo 'pass' || 'fail'
                   ''' 
                   }
                 } 
