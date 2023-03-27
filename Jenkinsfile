@@ -19,8 +19,11 @@ podTemplate(yaml: '''
           sh '''
           cd Chapter08/sample1
           curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          kubectl 
           chmod +x ./kubectl
-          test $(curl calculator-service.devops-tools.svc.cluster.local:8080/div?a=6\\&b=2) -eq 3 && echo 'pass' || 'fail'
+          ./kubectl apply -f calculator.yaml 
+          ./kubectl apply -f hazelcast.yaml
+          ./kubectl get pods -n devops-tools
                   ''' 
                   }
                 } 
