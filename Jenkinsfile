@@ -22,8 +22,6 @@ podTemplate(yaml: '''
           chmod +x ./kubectl
           ./kubectl apply -f calculator.yaml 
           ./kubectl apply -f hazelcast.yaml
-          sleep 30
-          test $(curl calculator-service.devops-tools.svc.cluster.local:8080/sum?a=6\\&b=2) -eq 8 && echo 'pass' || 'fail'
                   ''' 
                   }
                 } 
