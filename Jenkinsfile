@@ -23,7 +23,6 @@ podTemplate(yaml: '''
           chmod +x ./kubectl
           ./kubectl apply -f calculator.yaml 
           ./kubectl apply -f hazelcast.yaml
-          ./kubectl get pods -n devops-tools
                   ''' 
                   }
                 } 
